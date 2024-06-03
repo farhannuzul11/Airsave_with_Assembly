@@ -1,4 +1,4 @@
-# Sistem Pemantauan Kualitas Udara dengan Peringatan Otomatis
+# Sistem Pemantauan Kualitas Udara dengan Peringatan Otomatis.
 Proyek Akhir Mata Kuliah Sistem Siber Fisik 2024 Kelompok 8
 
 Kelompok 8:
