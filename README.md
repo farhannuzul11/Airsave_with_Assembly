@@ -36,21 +36,11 @@ Adapun peralatan yang digunakan adalah sebagai berikut:
 
 ### Implementasi Perangkat Keras
 
-![alt text](https://cdn.discordapp.com/attachments/402016959727665172/1245039422114893994/image.png?ex=66574cd1&is=6655fb51&hm=dc610270360d049bef32660a96f448c0d56fb1524eb6aad638adeba7c03ca921&)
-
 Desain rangkaian kami dibuat dengan menggunakan aplikasi Proteus. Rangkaian dibuat sedemikian rupa dengan menggunakan sebuah arduino dengan mengimplementasikan modul I2C untuk menjalankan penampilan hasil pembacaan dan pendeteksian sensor terpisah dari peringatan LED dan buzzer. Buzzer dirangkai dengan konfigurasi sedemikian rupa agar dapat menyala. Setiap LED dilengkapi oleh resistor untuk membatasi tegangan yang lewat pada masing-masing LED.
-
-![alt text](https://cdn.discordapp.com/attachments/402016959727665172/1245041837056593990/image.png?ex=66574f11&is=6655fd91&hm=99ff15a915b1c4b9b9f92681d10ab36a47dcbab25c8c2941b4443f15a8826fa6&)
 
 Rangkaian asli dibuat langsung ke dalam arduino asli dengan meng-flash kode .S ke arduino dan merangkai pada breadboard.
 
-## Detail Implementasi Perangkat Lunak
-### Desain Perangkat Lunak
-Untuk mempermudah pembuatan dari alat tersebut, akan menguntungkan apabila dibuat sebuah flowchart untuk mengetahui alur dari kerja alat tersebut.
-
-![alt text](https://cdn.discordapp.com/attachments/402016959727665172/1245036177933864980/image.png?ex=665749cc&is=6655f84c&hm=bf88428190858cb2e1ea223a7a5b8ce962dfe2b07a88d46530123510b4112f95&)
-
-Dari flowchart tersebut, routine yang digunakan dalam program dapat dikategorikan menjadi beberapa bagian, yaitu Main Program Routine, ADC Routine, I2C Routine, LCD Routine, ASCII Routine dan Delay Routine. Main Program routine merupakan representasi langsung dari flowchart yang telah dibuat. ADC Routine adalah sekumpulan routine dalam assembly yang berisi serangkaian instruksi yang dilakukan untuk menerima nilai sensor dari input analog.
+Routine yang digunakan dalam program dapat dikategorikan menjadi beberapa bagian, yaitu Main Program Routine, ADC Routine, I2C Routine, LCD Routine, ASCII Routine dan Delay Routine. Main Program routine merupakan representasi langsung dari flowchart yang telah dibuat. ADC Routine adalah sekumpulan routine dalam assembly yang berisi serangkaian instruksi yang dilakukan untuk menerima nilai sensor dari input analog.
 
 I2C Routine adalah sekumpulan routine yang berisi instruksi - instruksi untuk melakukan operasi pada I2C serial communication. LCD Routine adalah sekumpulan routine yang berisi instruksi - instruksi untuk melakukan operasi pada LCD. ASCII Routine adalah sekumpulan routine yang berisi instruksi - instruksi untuk mengubah nilai yang dibaca dari sensor analog menjadi nilai ASCIInya. Delay Routine adalah sekumpulan routine yang berisi instruksi - instruksi untuk membuat efek delay pada arduino.
 
@@ -58,20 +48,6 @@ I2C Routine adalah sekumpulan routine yang berisi instruksi - instruksi untuk me
 Kode bahasa rakitan yang dibuat menghubungkan sensor MQ2 yang dihubungkan pada pin arduino melalui breadboard yang terhubung ke pin konverter analog digital (ADC) 0 yang kemudian kode tersebut akan membaca data analog yang masuk dari sensor dan akan memprosesnya menjadi data digital untuk mengirimkannya ke LCD (yang sebelumnya telah terhubung ke arduino menggunakan protokol I2C) yang kemudian akan menampilkan data mengenai kondisi tingkatan kandungan CO yang terdapat pada udara.
 
 Selain itu kode ini akan menampilkan tingkatan tersebut kedalam 3 LED yang akan menampilkan data tersebut berdasarkan tingkatan yang telah diatur batasnya. 3 LED ini akan merepresentasikan tingkatan aman (hijau), waspada (kuning), dan bahaya (merah). Kemudian terdapat pin pada arduino yang akan digunakan untuk mengaktifkan buzzer yang akan menandakan tanda bahaya (ketika lampu LED merah menyala) yang menunjukkan bahwa tingkatan kandungan CO pada udara sudah dalam tahapan yang berbahaya.
-
-## Hasil Pengujian dan Evaluasi Kinerja
-### Hasil Pengujian
-Peringatan threshold pertama:
-
-![alt text](https://cdn.discordapp.com/attachments/402016959727665172/1245044529313353778/image.png?ex=66575193&is=66560013&hm=b6b458ec27e3cd9d81ad1073b77a02941a9d3440898507c7a94824be5124496a&)
-
-Peringatan threshold kedua:
-
-![alt text](https://cdn.discordapp.com/attachments/402016959727665172/1245044610745765949/image.png?ex=665751a7&is=66560027&hm=e5a282cba480df1101631a862f490259d1877d385b95374b372e27faa6205381&)
-
-Peringatan threshold ketiga:
-
-![alt text](https://cdn.discordapp.com/attachments/402016959727665172/1245044754169729084/image.png?ex=665751c9&is=66560049&hm=b749ac33a0acac67c0d06cc7dfb3e000aaeef026355f61d5c1815f321ce2b6d5&)
 
 ### Evaluasi
 Sistem tersebut mampu menunjukkan kadar CO dan memberikan aproksimasi tingkat CO yang terdapat pada udara disekitar dan menampilkannya pada LCD. Sistem ini dapat mengukur kadar CO dengan cukup akurat dan memberikan peringatan melalui buzzer jika kadar CO sudah dalam tahap berbahaya. Sistem ini juga mudah sekali digunakan karena tidak perlu interaksi dari pengguna dan mampu menampilkan status kadar CO ke 3 LED untuk memudahkan memantau tingkatan CO dalam udara. Sistem ini juga menggunakan sistem Arduino Uno berbasis ATMega 328p sehingga efisien dalam penggunaan daya, andal, dan mudah untuk diperbaiki.
