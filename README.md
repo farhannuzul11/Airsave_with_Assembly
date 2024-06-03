@@ -7,6 +7,11 @@ Kelompok 8:
 - Nicholas Samosir (2206059396)
 - Tanto Efrem Lesmana (2206031391)
 
+## Dokumentasi
+
+![Project Proteus](https://github.com/farhannuzul11/Airsave_with_Assembly/assets/112792115/751c9cd4-9881-4327-b167-1a5f061e7da5)
+
+
 ## Daftar Isi
 - [Pengantar dan Solusi dari Permasalahan](#pengantar-dan-solusi-dari-permasalahan)
 - [Desain dan Implementasi Perangkat Keras](#desain-dan-implementasi-perangkat-keras)
